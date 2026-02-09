@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,16 +20,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private AuthService authService;
-    private UserService userService;
+    private final AuthService authService;
+    private final UserService userService;
 
    @PostMapping("/signup")
-    public ResponseEntity<AuthResponse> signUp(SignupRequest signupRequest){
+    public ResponseEntity<AuthResponse> signUp(@RequestBody SignupRequest signupRequest){
         return ResponseEntity.ok(authService.signup(signupRequest));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(LoginRequest loginRequest){
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest){
        return ResponseEntity.ok(authService.login(loginRequest));
     }
 
