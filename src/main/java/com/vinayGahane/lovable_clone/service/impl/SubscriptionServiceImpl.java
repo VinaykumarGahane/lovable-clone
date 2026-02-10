@@ -5,7 +5,9 @@ import com.vinayGahane.lovable_clone.dto.subscription.CheckoutResponse;
 import com.vinayGahane.lovable_clone.dto.subscription.PortalResponse;
 import com.vinayGahane.lovable_clone.dto.subscription.SubscriptionResponse;
 import com.vinayGahane.lovable_clone.service.SubscriptionService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public SubscriptionResponse getCurrentSubscription(Long userId) {

@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/usage")
 public class UsageController {
+
     private final UsageService usageService;
+
 
     @GetMapping("/today")
     public ResponseEntity<UsageTodayResponse> getTodayUsage(){
@@ -22,7 +24,7 @@ public class UsageController {
     }
 
     @GetMapping("/limits")
-    private ResponseEntity<PlanLimitsResponse> getPlanLimits(){
+    public ResponseEntity<PlanLimitsResponse> getPlanLimits(){
         Long userId = 1L;
         return ResponseEntity.ok(usageService.getCurrentSubscriptionLimitsOfUser(userId));
     }
